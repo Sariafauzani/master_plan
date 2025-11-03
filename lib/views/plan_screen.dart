@@ -23,53 +23,56 @@ class _PlanScreenState extends State<PlanScreen> {
 
   @override
   Widget build(BuildContext context) {
-   return Scaffold(
-    // ganti ‘Namaku' dengan Nama panggilan Anda
-    appBar: AppBar(title: const Text('Master Plan Saria')),
-    body: _buildList(),
-    floatingActionButton: _buildAddTaskButton(),
-   );
+    return Scaffold(
+      // ganti ‘Namaku' dengan Nama panggilan Anda
+      appBar: AppBar(title: const Text('Master Plan Saria')),
+      body: _buildList(),
+      floatingActionButton: _buildAddTaskButton(),
+    );
   }
 
   Widget _buildAddTaskButton() {
-  return FloatingActionButton(
-   child: const Icon(Icons.add),
-   onPressed: () {
-     setState(() {
-      plan = Plan(
-       name: plan.name,
-       tasks: List<Task>.from(plan.tasks)
-       ..add(const Task()),
-     );
-    });
-   },
-  );
-}
+    return FloatingActionButton(
+      child: const Icon(Icons.add),
+      onPressed: () {
+        setState(() {
+          plan = Plan(
+            name: plan.name,
+            tasks: List<Task>.from(plan.tasks)..add(const Task()),
+          );
+        });
+      },
+    );
+  }
 
-Widget _buildList() {
-  return ListView.builder(
-   itemCount: plan.tasks.length,
-   itemBuilder: (context, index) =>
-   _buildTaskTile(plan.tasks[index], index),
-  );
-}
+  Widget _buildList() {
+    return ListView.builder(
+      controller: scrollController,
+      keyboardDismissBehavior: Theme.of(context).platform == TargetPlatform.iOS
+          ? ScrollViewKeyboardDismissBehavior.onDrag
+          : ScrollViewKeyboardDismissBehavior.manual,
+      itemCount: plan.tasks.length,
+      itemBuilder: (context, index) => _buildTaskTile(plan.tasks[index], index),
+    );
+  }
 
-Widget _buildTaskTile(Task task, int index) {
+  Widget _buildTaskTile(Task task, int index) {
     return ListTile(
       leading: Checkbox(
-          value: task.complete,
-          onChanged: (selected) {
-            setState(() {
-              plan = Plan(
-                name: plan.name,
-                tasks: List<Task>.from(plan.tasks)
-                  ..[index] = Task(
-                    description: task.description,
-                    complete: selected ?? false,
-                  ),
-              );
-            });
-          }),
+        value: task.complete,
+        onChanged: (selected) {
+          setState(() {
+            plan = Plan(
+              name: plan.name,
+              tasks: List<Task>.from(plan.tasks)
+                ..[index] = Task(
+                  description: task.description,
+                  complete: selected ?? false,
+                ),
+            );
+          });
+        },
+      ),
       title: TextFormField(
         initialValue: task.description,
         onChanged: (text) {
@@ -77,10 +80,7 @@ Widget _buildTaskTile(Task task, int index) {
             plan = Plan(
               name: plan.name,
               tasks: List<Task>.from(plan.tasks)
-                ..[index] = Task(
-                  description: text,
-                  complete: task.complete,
-                ),
+                ..[index] = Task(description: text, complete: task.complete),
             );
           });
         },
