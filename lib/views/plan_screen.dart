@@ -11,8 +11,8 @@ class PlanScreen extends StatefulWidget {
 }
 
 class _PlanScreenState extends State<PlanScreen> {
-
   late ScrollController scrollController;
+  Plan get plan => widget.plan;
 
   @override
   void initState() {
