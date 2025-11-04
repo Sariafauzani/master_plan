@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import '../provider/plan_provider.dart';
 
 class PlanScreen extends StatefulWidget {
-  const PlanScreen({super.key});
+  final Plan plan;
+  const PlanScreen({super.key, required this.plan});
 
   @override
   State createState() => _PlanScreenState();
