@@ -1,16 +1,23 @@
-# master_plan
+# Jobsheet 10 - Master Plan
 
-A new Flutter project.
+**Nama:** Saria Fauzani
 
-## Getting Started
+**NIM:** 2341760178
 
-This project is a starting point for a Flutter application.
+**Kelas:** SIB-3D
 
-A few resources to get you started if this is your first Flutter project:
+**No. Absen:** 24
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+---
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# Hasil Praktikum 1: Dasar State dengan Model-View
+![Gif master_plan](images/Tugas1_no4.gif)
+---
+
+# Hasil Praktikum 2: Mengelola Data Layer dengan InheritedWidget dan InheritedNotifier
+![Gif master_plan](images/Tugas2_no4.gif)
+---
+
+# Hasil Praktikum 3: Membuat State di Multiple Screens
+![Gif master_plan](images/Tugas3_no3.gif)
+---
